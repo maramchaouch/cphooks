@@ -1,0 +1,14 @@
+button{
+   height: auto;
+    background-color: rgb(214, 235, 235);
+}
+.input {
+    position: absolute;
+    top: 90px;
+    display: block;
+    background-color: rgb(230, 230, 230);
+   flex-direction: column;
+   z-index: 100;
+
+padding:2%;
+}
