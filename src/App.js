@@ -2,8 +2,10 @@ import './App.css';
 import AddFilm from './compo/AddFilm';
 import ListFilm from './compo/ListFilm';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {useState} from 'react'
+import Moviecard from './compo/comp2/Moviecard';
+import Movdesc from './compo/comp2/Movdesc';
 import mo from './compo/mm.jpeg'
 function App() {
   const [movies, setMovies] = useState([ {
@@ -16,6 +18,7 @@ function App() {
       "https://lumiere-a.akamaihd.net/v1/images/pp_thedevilwearsprada_21373_dabe3cc6.jpeg?region=0%2C0%2C540%2C810",
       description: 'A smart but sensible new graduate lands a job as an assistant to Miranda Priestly, the demanding editor-in-chief of a high fashion magazine.', 
       category: "comedu | drame",
+      trailer: "https://youtu.be/6ZOZwUQKu3E?si=fhM_4yB5UjZf0QkuZwE8Zg",
       __v: 0,
     },
     {
@@ -28,6 +31,7 @@ function App() {
       description:
         "A mysterious stranger with a harmonica joins forces with a notorious desperado to protect a beautiful widow from a ruthless assassin working for the railroad.",
       category: "Western",
+      trailer:"https://youtu.be/c8CJ6L0I6W8?si=Zquqk5mrDEm55VZb",
       __v: 0,
     },
     {
@@ -40,6 +44,7 @@ function App() {
       description:
         "A mentally unstable veteran works as a nighttime taxi driver in New York City, where the perceived decadence and sleaze fuels his urge for violent action by attempting to liberate a presidential campaign worker and an underage prostitute.",
       category: "Crime | Drama",
+      trailer:"https://youtu.be/UUxD4-dEzn0?si=5-FXR04r00GtiqTL",
       __v: 0,
     },
     {
@@ -63,6 +68,8 @@ function App() {
       description:
         "A family determined to get their young daughter into the finals of a beauty pageant take a cross-country trip in their VW bus.",
       category: "Comedy | Drama",
+      trailer:"https://youtu.be/OFVGCUIXJls?si=j27jxlq_JDWaDe9r",
+    
       __v: 0,
     },
     {
@@ -75,6 +82,8 @@ function App() {
         description: 'The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.', 
 
       category: "Action | politic",
+      trailer:"https://youtu.be/UaVTIH8mujA?si=y-fY1nWaf1ix53bC",
+
       __v: 0,
     },
     {
@@ -87,6 +96,7 @@ function App() {
       description:
         "Based on the true story of Jordan Belfort, from his rise to a wealthy stock-broker living the high life to his fall involving crime, corruption and the federal government.",
       category: "Biography | Crime | Drama",
+      trailer:"https://youtu.be/iszwuX1AK6A?si=RS15tzSRn5dwftCy",
       __v: 0,
   
   
@@ -112,6 +122,12 @@ function App() {
      
 
     </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<div>{movies.map((movie)=><Moviecard key={movie.id} movie={movie}/>)}</div>} />
+      <Route path="/movie/:id" element={<Movdesc />} />
+      </Routes>
+    </Router>
     </>
   );
 }
